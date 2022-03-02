@@ -4,16 +4,13 @@ from Area_38_Backend.models import User
 
 
 @admin.register(User)
-#just a template, change below
-class BookInstanceAdmin(admin.ModelAdmin):
-    list_display = ('book', 'status', 'borrower', 'due_back', 'id')
-    list_filter = ('status', 'due_back')
+# Just a template, change below
+class UserStatusAdmin(admin.ModelAdmin):
+    list_display = ('analysisID', 'status', 'result', 'review')
+    list_filter = ('analysisID', 'status')
 
     fieldsets = (
         (None, {
-            'fields': ('book','imprint', 'id')
-        }),
-        ('Availability', {
-            'fields': ('status', 'due_back','borrower')
+            'fields': ('analysisID','status', 'result')
         }),
     )

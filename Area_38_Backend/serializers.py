@@ -9,8 +9,6 @@ class LoginSerializer(serializers.ModelSerializer):
             "username",
             "password",
             "get_absolute_url",
-            "description",
             "error_message",
             "get_image",
-            "get_thumbnail",
         }
