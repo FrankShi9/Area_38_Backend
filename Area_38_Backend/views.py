@@ -9,6 +9,7 @@ from .serializers import LoginSerializer
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+''' Backup code 
 class LoginList(LoginRequiredMixin, APIView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
@@ -17,7 +18,7 @@ class LoginList(LoginRequiredMixin, APIView):
         loginKits = User.objects.all()[0:5]  # change table name
         serializer = LoginSerializer(loginKits, many=True)
         return Response(serializer.data)
-
+'''
 
 def login(request):
     if request.method == "GET":
