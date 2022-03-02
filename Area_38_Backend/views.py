@@ -3,10 +3,12 @@ from django.shortcuts import render, redirect
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from . import models
 from .models import User
 from .serializers import LoginSerializer
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from . import models
+
 
 ''' Backup code 
 class LoginList(LoginRequiredMixin, APIView):
@@ -51,6 +53,18 @@ def logout(request):
     rep.delete_cookie("is_login")
     return rep  # 点击注销后执行,删除cookie,不再保存用户状态，并弹到登录页面
 
+def register(request):
+    if request.method == "GET":
+        return render(request, "register.vue")
+    username = request.POST.get("username")
+    password = request.POST.get("pwd")
+
+    user_obj = models.UserInfo.objects.filter(username=username, password=password).first()
+    print(user_obj.username)
+
+    rep = redirect("/index/")  # Url redirect to index after success login
+    rep.set_cookie("is_login", True)  # Update cookie
+    return rep
 
 # def order(request):
 #     print(request.COOKIES.get('is_login'))

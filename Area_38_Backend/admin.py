@@ -15,7 +15,7 @@ class UserStatusAdmin(admin.ModelAdmin):
         }),
     )
 
-
+# Enforce login: native solution
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 

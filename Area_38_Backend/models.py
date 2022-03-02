@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 
 user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
+INSTALLED_APPS = [
+    #...
+    'myapp',
+    #...
+]
 
 class UserInfo(models.Model):
     username = models.CharField(max_length=32)

@@ -138,3 +138,11 @@ LOGIN_REDIRECT_URL = '/'
 
 # Reset password
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+'''
+# File upload handle
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.MemoryFileUploadHandler',
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]
+'''

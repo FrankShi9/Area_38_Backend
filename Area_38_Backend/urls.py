@@ -21,12 +21,15 @@ from django.urls import path, include
 import views as views
 
 urlpatterns = [
+    # Path 1 use native Cookie based defined in views.py
     path('admin/', admin.site.urls),
     path('login/', views.login),
+    path('register/', views.register),
     path('index/', views.index),
     path('logout/', views.logout),
     # path('order/', views.order),
 
+    # Path 2 use djoser entry points for login/register...
     path('api/v1/', include('djoser.urls')),
     path('api/v1/', include('djoser.urls.authtoken')),
 
