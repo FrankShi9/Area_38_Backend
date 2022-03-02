@@ -17,11 +17,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+import views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', views.login),
+    path('index/', views.index),
+    path('logout/', views.logout),
+    path('order/', views.order),
+
     path('api/v1/', include('djoser.urls')),
     path('api/v1/', include('djoser.urls.authtoken')),
+
+    #Add Django site authentication urls (for login, logout, password management)
+    path('accounts/', include('django.contrib.auth.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 
