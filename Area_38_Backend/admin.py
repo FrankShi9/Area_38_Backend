@@ -23,4 +23,4 @@ from django.shortcuts import render
 @login_required
 def my_protected_view(request):
     """A view that can only be accessed by logged-in users"""
-    return render(request, 'login.vue', {'current_user': request.user})
+    return render(request, 'vue_app/login.vue', {'current_user': request.user})

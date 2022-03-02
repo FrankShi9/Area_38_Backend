@@ -1,4 +1,4 @@
-"""Area_38_Backend URL Configuration
+"""vue_app URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-import views as views
+import Area_38_Backend.views as views
 
 urlpatterns = [
     # Path 1 use native Cookie based defined in views.py

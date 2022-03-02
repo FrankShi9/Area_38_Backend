@@ -23,8 +23,8 @@ class LoginList(LoginRequiredMixin, APIView):
 
 
 def login(request):
-    if request.method == "GET":
-        return render(request, "login.vue")
+    # if request.method == "GET":
+    return render(request, "vue_app/login.vue")
     username = request.POST.get("username")
     password = request.POST.get("pwd")
 
@@ -45,7 +45,7 @@ def index(request):
     status = request.COOKIES.get('is_login')
     if not status:
         return redirect('/login/')
-    return render(request, "index.js")
+    return render(request, "vue_app/index.html")
 
 
 def logout(request):
@@ -55,7 +55,7 @@ def logout(request):
 
 def register(request):
     if request.method == "GET":
-        return render(request, "register.vue")
+        return render(request, "vue_app/register.vue")
     username = request.POST.get("username")
     password = request.POST.get("pwd")
 
