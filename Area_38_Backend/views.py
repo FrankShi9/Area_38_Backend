@@ -23,7 +23,7 @@ class LoginList(LoginRequiredMixin, APIView):
 
 def login(request):
     # if request.method == "GET":
-    return render(request, "vue_app/login.vue")
+    #return render(request, "vue_app/login.vue")
     username = request.POST.get("username")
     password = request.POST.get("pwd")
 
