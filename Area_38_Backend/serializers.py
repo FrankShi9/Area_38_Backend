@@ -1,7 +1,9 @@
 from rest_framework import serializers
 
-from .models import Category, User
+from .models import User
 
+
+# send login data to front end
 class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -9,8 +11,6 @@ class LoginSerializer(serializers.ModelSerializer):
             "username",
             "password",
             "get_absolute_url",
-            "description",
             "error_message",
-            "get_image",
-            "get_thumbnail",
+            "get_icon",
         }
