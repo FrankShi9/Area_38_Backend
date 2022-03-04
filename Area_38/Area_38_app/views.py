@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import User
-from .serializers import LoginSerializer
+from .serializer import LoginSerializer
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import models
@@ -23,16 +23,19 @@ class LoginList(LoginRequiredMixin, APIView):
 
 def login(request):
     # if request.method == "GET":
-    #return render(request, "vue_app/login.vue")
+    return render(request, "vue_app/login.vue")
     username = request.POST.get("username")
     password = request.POST.get("pwd")
 
     user_obj = models.UserInfo.objects.filter(username=username, password=password).first()
-    print(user_obj.username)
+
+    # print(user_obj.username)
 
     if not user_obj:
-        return redirect("/login/")  # Url redirect to login again
-    else:
-        rep = redirect("/index/")  # Url redirect to index after success login
-        rep.set_cookie("is_login", True)  # Update cookie
-        return rep
+        print("no such user here")
+    # if not user_obj:
+    #     return redirect("/login/")  # Url redirect to login again
+    # else:
+    #     rep = redirect("/index/")  # Url redirect to index after success login
+    #     rep.set_cookie("is_login", True)  # Update cookie
+    #     return rep
